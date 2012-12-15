@@ -8,12 +8,13 @@ import functools
 
 from bottle import Bottle, request, redirect, response
 
+from pygments.lexers import ClassNotFound
+
 from models import Tag, Post, session
 from convert import Convert
 from utils import jinja_view, key_verified
 
 from paper.settings import DEBUG
-
 
 
 app = Bottle()
@@ -142,7 +143,6 @@ def store_new_post(session, title, content, tags):
 @app.post('/blog/new')
 def new_post():
     key = request.forms.get('key')
-    print key
     
     if not key_verified(key):
         return 'Verify Failured, Key Error!\n'
@@ -150,12 +150,16 @@ def new_post():
     filename = request.forms.get('filename')
     content = request.forms.get('content')
     
+    filename = os.path.basename(filename)
     title, ext = os.path.splitext(filename)
     ext = ext.lstrip('.')
     
-    tags_str, content = content.split('\n', 1)
-    tags_str = tags_str.split(':')[-1]
-    tags = [t.strip() for t in tags_str.split(',')]
+    try:
+        tags_str, content = content.split('\n', 1)
+        tags_str = tags_str.split(':')[-1]
+        tags = [t.strip() for t in tags_str.split(',')]
+    except:
+        return 'Invalid content!\n'
     
     try:
         c = Convert(ext)
@@ -164,7 +168,10 @@ def new_post():
     except Exception:
         return 'Error occurred!\n'
     
-    html = c.convert(content)
+    try:
+        html = c.convert(content)
+    except ClassNotFound, e:
+        return 'ClassNotFound, %s\n' % str(e)
     
     p = session.query(Post).filter(Post.title == title)
     if p.count() > 0:
