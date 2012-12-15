@@ -1,0 +1,15 @@
+
+*.pyc
+*.swp
+*.bak
+*.o
+
+_key
+me.html
+settings.py
+
+
+env
+.env
+
+tmp

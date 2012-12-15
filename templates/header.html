@@ -1,0 +1,26 @@
+<div id="header">
+    <div id="header-top">
+        <div id="blog-title">
+            YueyouM's Writing Time
+        </div>
+        <div id="blog-sub">
+            something about my thinking, doing, and the wonderful code world
+        </div>
+    </div>
+    <div id="nav">
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li>
+                <span>TAGS</span>
+                <ul>
+                    {% for t in tags %}
+                        <li><a href="/tag/{{ t.name }}"><span>{{ t.name }}</span>({{ t.posts_count }})</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+                
+            <li><a href="{{ github_link }}" target="_blank">GITHUB</a></li>
+            <li><a href="/about">ABOUT</a></li>
+        </ul>
+    </div>
+</div>

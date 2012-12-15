@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{{ title }}</title>
+        <link href="/static/css/foghorn.css?ver={{ ver }}" type="text/css" rel="stylesheet" />
+        <link href="/static/css/style.css?ver={{ ver }}" type="text/css" rel="stylesheet" />
+        <link href="/static/css/pygments.css?ver={{ ver }}" type="text/css" rel="stylesheet" />
+    </head>
+    
+    <body>
+        <div id="main">
+            {% include "header.html" %}
+            
+            {% block content %}
+            {% endblock %}
+            
+        </div>
+        {% include "footer.html" %}
+    </body>
+</html>

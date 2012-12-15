@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+
+DEBUG = False
+
+MYSQL = {
+    'HOST': '127.0.0.1',
+    'PORT': 3306,
+    'TABLE': '',
+    'USER': '',
+    'PASSWORD': '',
+}
+
+BLOG_TITLE = ""
+GITHUB_LINK = ""
+
+STATIC_FILE_VERSION = 1

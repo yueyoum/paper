@@ -1,0 +1,73 @@
+@import url(font.css);
+
+body {
+    font: 0.9em "monacoregular", Times;
+    color: #333;
+    line-height: 1.5;
+    text-align: justify;
+    }
+
+
+h1 {
+    font-weight: normal;
+    }
+h2 {
+    font-weight: normal;
+    }
+h3 {
+    font-weight: normal;
+    font-style: italic;
+    margin-top:3em;
+    }
+p {
+    margin-top:0;
+    -webkit-hypens:auto;
+    -moz-hypens:auto;
+    hyphens:auto;
+    }
+ul {
+    list-style: square;
+    padding-left:1.2em;
+    }
+ol {
+    padding-left:1.2em;
+    }
+blockquote {
+    margin-left: 1em;
+    padding-left: 1em;
+    border-left: 2px solid #aaa;
+    }
+code {
+    font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
+    font-size: .9em;
+    background: white;
+    }
+a {
+    color: #2484c1;
+    text-decoration: none;
+    }
+a img {
+    border:none;
+    }
+h1 a, h1 a:hover {
+    color: #333;
+    text-decoration: none;
+    }
+hr {
+    color : #ddd;
+    height : 1px;
+    margin: 2em 0;
+    border-top : solid 1px #ddd;
+    border-bottom : none;
+    border-left: 0;
+    border-right: 0;
+    }
+p#heart{
+    font-size: 2em;
+    line-height: 1;
+    text-align: center;
+    color: #ccc;
+    }
+.red {
+    color:#B50000;
+    }

@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'CaviarDreams';
+    src: url('/static/font/caviar_dreams_bold-webfont.eot');
+    src: url('/static/font/caviar_dreams_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/font/caviar_dreams_bold-webfont.woff') format('woff'),
+         url('/static/font/caviar_dreams_bold-webfont.ttf') format('truetype'),
+         url('/static/font/caviar_dreams_bold-webfont.svg#caviar_dreamsbold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'CaviarDreams';
+    src: url('/static/font/caviardreams-webfont.eot');
+    src: url('/static/font/caviardreams-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/font/caviardreams-webfont.woff') format('woff'),
+         url('/static/font/caviardreams-webfont.ttf') format('truetype'),
+         url('/static/font/caviardreams-webfont.svg#caviar_dreamsregular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+
+
+@font-face {
+    font-family: 'santanaregular';
+    src: url('/static/font/santana-webfont.eot');
+    src: url('/static/font/santana-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/font/santana-webfont.woff') format('woff'),
+         url('/static/font/santana-webfont.ttf') format('truetype'),
+         url('/static/font/santana-webfont.svg#santanaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+
+@font-face {
+    font-family: 'monacoregular';
+    src: url('/static/font/monaco-webfont.eot');
+    src: url('/static/font/monaco-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/font/monaco-webfont.woff') format('woff'),
+         url('/static/font/monaco-webfont.ttf') format('truetype'),
+         url('/static/font/monaco-webfont.svg#monacoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

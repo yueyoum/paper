@@ -1,0 +1,246 @@
+ul {list-style: square;}
+a {text-decoration: none;}
+a:hover {text-decoration: underline;}
+pre {font: 0.95em "monacoregular";}
+
+
+body {
+    background: #F4F3F3 url('/static/img/background.png') repeat;
+}
+
+#main {
+    width: 900px;
+    margin: 60px auto;
+    padding: 60px 60px 20px 60px;
+    border: 1px solid #bbb;
+    border-top-color: #999;
+    background: white;
+    position: relative;
+    -webkit-box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+
+#main:before, #main:after {
+	content:"";
+	position:absolute;
+	z-index:-2;
+	top:-8px;
+	left:10px;
+	width:50%;
+	height:10px;
+	-webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.4);
+	box-shadow:0 15px 10px rgba(0, 0, 0, 0.4);
+	-webkit-transform:rotate(3deg);
+	-moz-transform:rotate(3deg);
+	-ms-transform:rotate(3deg);
+	-o-transform:rotate(3deg);
+	transform:rotate(3deg);
+}
+#main:after {
+	right:10px;
+	left:auto;
+	-webkit-transform:rotate(-3deg);
+	-moz-transform:rotate(-3deg);
+	-ms-transform:rotate(-3deg);
+	-o-transform:rotate(-3deg);
+	transform:rotate(-3deg);
+}
+
+
+
+#header {
+    text-align: center;
+    padding: 0 30px;
+    margin-bottom: 50px;
+    border-bottom: 2px solid #555;
+}
+
+#header-top {
+    margin: 0 50px;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+
+#blog-title {
+    font: 2.2em "CaviarDreams";
+    font-size: 2.2em;
+    letter-spacing: 0.1em;
+    word-spacing: 0.3em;
+    color: #555;
+}
+
+#blog-sub {
+    font: 0.7em "CaviarDreams";
+    font-size: 0.7em;
+    color: gray;
+}
+
+
+#nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px auto;
+    position: relative;
+}
+#nav ul li {
+    display: inline-block;
+    margin: 0 1.5em;
+    font: 0.9em "CaviarDreams";
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+}
+
+#nav ul li a {
+    color: #333;
+    padding: 15px 5px;
+}
+
+#nav ul li span {
+    padding: 15px 5px;
+    cursor: pointer;
+}
+
+
+#nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background: white;
+    
+    font-weight: normal;
+    
+    border: 1px solid #aaa;
+    border-top: none;
+    -webkit-border-radius: 0px 0px 20px 20px;
+    border-radius: 0px 0px 20px 20px;
+    -webkit-box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+    
+}
+
+#nav ul li:hover > ul {
+    display: block;
+}
+
+#nav ul ul li {
+    display: block;
+    border-top: 1px solid #aaa;
+    margin: 0;
+}
+
+#nav ul ul li a {
+    display: block;
+    padding: 1.2em 2em;
+}
+
+#nav ul ul li a:hover {
+    background: #4b545f;
+    text-decoration: none;
+    color: white;
+}
+#nav ul ul li a span {
+    margin: 0 15px 0 0;
+}
+
+
+.highlight {
+    margin: 10px 0px;
+    padding: 10px 20px;
+    font-size: 0.95em;
+    border: 1px solid #ccc;
+}
+
+
+#index h2 {
+    color: #555;
+}
+
+#index ul li {
+    line-height: 30px;
+}
+
+#index ul li span {
+    margin-right: 20px;
+    display: inline-block;
+    color: #777;
+}
+
+
+#index ul li span.view_count {
+    width: 80px;
+    float: right;
+    text-align: right;
+}
+
+#index ul a {
+    color: #555;
+}
+
+#index ul a:hover {
+    color: #2485c1;
+    text-decoration: underline;
+}
+
+#post-title {
+    text-align: center;
+}
+
+#post-title h1 {
+    margin-bottom: 0px;
+}
+
+#post-info {
+    text-align: center;
+    font-size: 0.75em;
+    color: #777;
+}
+
+#post-info span {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#post-info span.value {
+    color: black;
+}
+
+#post-info span a {
+    margin: 0 10px;
+}
+
+#post-content {
+    margin-top: 20px;
+}
+
+#comment {
+    margin: 50px 0 0 0;
+}
+
+#footer {
+    margin: 0 0 20px 0;
+    text-align: center;
+    font-size: 0.7em;
+    color: #666;
+}
+
+#footer a {
+    color: #333;
+}
+
+
+#about h1 {
+    color: #999;
+    font: 2.6em "santanaregular";
+    font-weight: bold;
+    margin-top: 1.5em;
+    border-bottom: 1px dashed #ccc;
+}
+
+#post-content h1 {
+    border-bottom: 1px dashed #ccc;
+}

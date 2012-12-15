@@ -1,0 +1,9 @@
+MySQL-python
+SQLalchemy
+bottle
+jinja2
+pygments
+Markdown
+
+gevent
+gunicorn
