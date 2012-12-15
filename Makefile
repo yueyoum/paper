@@ -25,6 +25,12 @@ key:
 	./bin/generate_key.py
 
 
+.PHONY: database
+database:
+	source env/bin/activate; \
+	python application.py syncdb
+
+
 .PHONY: run
 run:
 	source env/bin/activate; \

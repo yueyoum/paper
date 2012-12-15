@@ -6,7 +6,7 @@ import itertools
 import functools
 
 
-from bottle import Bottle, request, redirect
+from bottle import Bottle, request, redirect, response
 
 from models import Tag, Post, session
 from convert import Convert
@@ -17,6 +17,16 @@ from paper.settings import DEBUG
 
 
 app = Bottle()
+
+
+
+def no_cache(func):
+    @functools.wraps(func)
+    def deco(*args, **kwargs):
+        response.set_header('Cache-Control', 'no-cache')
+        return func(*args, **kwargs)
+    return deco
+    
 
 
 
@@ -41,6 +51,7 @@ def group_posts(items):
 
 
 @app.get('/')
+@no_cache
 @jinja_view('index.html')
 def index():
     posts = session.query(Post).order_by(Post.create_at.desc())
@@ -50,6 +61,7 @@ def index():
     
 
 @app.get('/tag/<tag>')
+@no_cache
 @jinja_view('index.html')
 def filter_by_tag(tag):
     posts = session.query(Post).filter(Post.tags.any(Tag.name==tag)
