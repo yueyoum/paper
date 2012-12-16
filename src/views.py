@@ -84,14 +84,14 @@ def show_post(title):
     post.view_count += 1
     session.commit()
     
-    return {'post': post}
+    return {'post': post, 'title': post.title}
 
 
 
 @app.get('/about')
 @jinja_view('about.html')
 def about():
-    return {}
+    return {'title': 'about'}
 
 
 
