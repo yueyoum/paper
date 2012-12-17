@@ -7,12 +7,13 @@ import functools
 
 
 from bottle import Bottle, request, redirect, response
+from sqlalchemy.orm import subqueryload
 
 from pygments.lexers import ClassNotFound
 
-from models import Tag, Post, session
+from models import Tag, Post
 from convert import Convert
-from utils import jinja_view, key_verified
+from utils import jinja_view, key_verified, session_context
 
 from paper.settings import DEBUG
 
@@ -55,7 +56,9 @@ def group_posts(items):
 @no_cache
 @jinja_view('index.html')
 def index():
-    posts = session.query(Post).order_by(Post.create_at.desc())
+    with session_context() as session:
+        posts = session.query(Post).order_by(Post.create_at.desc())
+        
     posts = group_posts(posts)
     return {'posts': posts}
     
@@ -65,8 +68,9 @@ def index():
 @no_cache
 @jinja_view('index.html')
 def filter_by_tag(tag):
-    posts = session.query(Post).filter(Post.tags.any(Tag.name==tag)
-                                    ).order_by(Post.create_at.desc())
+    with session_context() as session:
+        posts = session.query(Post).filter(Post.tags.any(Tag.name==tag)
+                                        ).order_by(Post.create_at.desc())
     
     posts = group_posts(posts)
     return {'posts': posts}
@@ -76,13 +80,17 @@ def filter_by_tag(tag):
 @app.get('/blog/<title>')
 @jinja_view('post.html')
 def show_post(title):
-    post = session.query(Post).filter(Post.title == title)
-    if post.count() < 1:
-        redirect('/')
+    with session_context() as session:
+        post = session.query(Post).options(
+            subqueryload(Post.tags)
+        ).filter(Post.title == title)
         
-    post = post.one()
-    post.view_count += 1
-    session.commit()
+        if post.count() < 1:
+            redirect('/')
+            
+        post = post.one()
+        post.view_count += 1
+        session.commit()
     
     return {'post': post, 'title': post.title}
 
@@ -173,15 +181,16 @@ def new_post():
     except ClassNotFound, e:
         return 'ClassNotFound, %s\n' % str(e)
     
-    p = session.query(Post).filter(Post.title == title)
-    if p.count() > 0:
-        # update
-        edit_post(session, p.one(), html, tags)
-    else:
-        # new blog
-        store_new_post(session, title, html, tags)
-        
-    session.commit()
+    with session_context() as session:
+        p = session.query(Post).filter(Post.title == title)
+        if p.count() > 0:
+            # update
+            edit_post(session, p.one(), html, tags)
+        else:
+            # new blog
+            store_new_post(session, title, html, tags)
+            
+        session.commit()
     
     return 'Done\n'
 

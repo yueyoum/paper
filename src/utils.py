@@ -2,12 +2,12 @@
 
 import os
 import datetime
-#from contextlib import contextmanager
+from contextlib import contextmanager
 from functools import wraps
 
 from jinja2 import Environment, FileSystemLoader
 
-from models import Tag, session
+from models import Tag, get_session
 
 from paper.settings import (BLOG_TITLE,
                             STATIC_FILE_VERSION,
@@ -31,6 +31,16 @@ env.filters['format_date'] = format_date
 
 
 
+@contextmanager
+def session_context():
+    s = get_session()
+    try:
+        yield s
+    except Exception:
+        raise
+    finally:
+        s.close()
+
 
 
 def blog_context():
@@ -41,7 +51,9 @@ def blog_context():
     }
     
     # TODO cache the tags
-    data['tags'] = session.query(Tag).order_by(Tag.name.asc())
+    with session_context() as session:
+        data['tags'] = session.query(Tag).order_by(Tag.name.asc())
+    
     return data
     
 
@@ -64,15 +76,6 @@ def jinja_view(tpl, **kwargs):
     return deco
 
 
-#@contextmanager
-#def session_context():
-#    s = get_session()
-#    try:
-#        yield s
-#    except Exception:
-#        raise
-#    finally:
-#        s.commit()
         
 
 def key_verified(key):

@@ -21,7 +21,7 @@ MYSQL_TABLE = MYSQL['TABLE']
 MYSQL_USER = MYSQL['USER']
 MYSQL_PASSWORD = MYSQL['PASSWORD']
 
-__all__ = ['session', 'Tag', 'Post']
+__all__ = ['get_session', 'Tag', 'Post']
 
 
 engine = create_engine(
@@ -31,9 +31,11 @@ engine = create_engine(
     echo = DEBUG
 )
 
-Session = sessionmaker(bind=engine)
-session = Session()
-#get_session = lambda: Session()
+
+def get_session():
+    Session = sessionmaker(bind=engine, expire_on_commit=False)
+    return Session()
+
 
 Base = declarative_base()
 
