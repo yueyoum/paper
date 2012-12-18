@@ -9,7 +9,7 @@ body {
 }
 
 #main {
-    width: 900px;
+    width: 860px;
     margin: 60px auto;
     padding: 60px 60px 20px 60px;
     border: 1px solid #bbb;
@@ -242,5 +242,11 @@ body {
 }
 
 #post-content h1 {
-    border-bottom: 1px dashed #ccc;
+	color: black;
+    border-bottom: 1px solid #666;
+	font-weight: bold;
+}
+#post-content h2 {
+	color: black;
+	border-bottom: 1px solid #ccc;
 }
