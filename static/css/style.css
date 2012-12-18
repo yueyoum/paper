@@ -248,5 +248,9 @@ body {
 }
 #post-content h2 {
 	color: black;
-	border-bottom: 1px solid #ccc;
+	margin-top: 2em;
+}
+
+#post-content strong, b{
+	color: black;
 }
