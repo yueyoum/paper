@@ -13,7 +13,7 @@ from pygments.lexers import ClassNotFound
 
 from models import Tag, Post
 from convert import Convert
-from utils import jinja_view, key_verified, session_context
+from utils import jinja_view, key_verified, session_context, forbid
 
 from paper.settings import DEBUG
 
@@ -78,6 +78,7 @@ def filter_by_tag(tag):
     
     
 @app.get('/blog/<title>')
+@forbid(referer='http://disqus.com')
 @jinja_view('post.html')
 def show_post(title):
     with session_context() as session:

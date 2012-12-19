@@ -5,6 +5,7 @@ import datetime
 from contextlib import contextmanager
 from functools import wraps
 
+from bottle import request
 from jinja2 import Environment, FileSystemLoader
 
 from models import Tag, get_session
@@ -74,6 +75,24 @@ def jinja_view(tpl, **kwargs):
             return template.render(**data)
         return wrapper
     return deco
+
+
+def forbid(**kwargs):
+    lower_key_kwargs = {}
+    for k, v in kwargs.items():
+        lower_key_kwargs[k.lower()] = v
+        
+    def deco(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            if 'referer' in lower_key_kwargs:
+                if request.get_header('Referer', '').startswith(
+                    lower_key_kwargs['referer']):
+                    return ''
+            return func(*args, **kwargs)
+        return wrapper
+    return deco
+        
 
 
         

@@ -3,28 +3,30 @@
 {% block content %}
 
     <div id="post">
-        <div id="post-title">
-            <h1>{{ post.title }}</h1>
-        </div>
-        
-        <div id="post-info">
-            <span>Posted At :</span>
-            <span class="value">{{ post.create_at|format_date }}</span>
-            <span>|</span>
-            <span>Views :</span>
-            <span class="value">{{ post.view_count }}</span>
-            <span>|</span>
-            <span>Tags :</span>
-            <span class="value">
-                {% for t in post.tags %}
-                    <a href="/tag/{{ t.name }}">{{ t.name }}</a>
-                {% endfor %}
-            </span>
-        </div>
-        
-        <div id="post-content">
-            {{ post.content }}
-        </div>
+        {% if post %}
+            <div id="post-title">
+                <h1>{{ post.title }}</h1>
+            </div>
+            
+            <div id="post-info">
+                <span>Posted At :</span>
+                <span class="value">{{ post.create_at|format_date }}</span>
+                <span>|</span>
+                <span>Views :</span>
+                <span class="value">{{ post.view_count }}</span>
+                <span>|</span>
+                <span>Tags :</span>
+                <span class="value">
+                    {% for t in post.tags %}
+                        <a href="/tag/{{ t.name }}">{{ t.name }}</a>
+                    {% endfor %}
+                </span>
+            </div>
+            
+            <div id="post-content">
+                {{ post.content }}
+            </div>
+        {% endif %}
     </div>
     
     <div id="comment">
