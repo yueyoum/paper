@@ -1,7 +1,7 @@
 <div id="header">
     <div id="header-top">
         <div id="blog-title">
-            YueyouM's Writing Time
+            {{ blog_title }}
         </div>
         <div id="blog-sub">
             something about my thinking, doing, and the wonderful code world
@@ -21,7 +21,11 @@
             </li>
                 
             <li><a href="{{ github_link }}" target="_blank">GITHUB</a></li>
-            <li><a href="http://book.douban.com/people/2909454/" target="_blank">BOOKS</a></li>
+            
+            {% if douban_book_link %}
+                <li><a href="{{ douban_book_link }}" target="_blank">BOOKS</a></li>
+            {% endif %}
+            
             <li><a href="/about">ABOUT</a></li>
         </ul>
     </div>

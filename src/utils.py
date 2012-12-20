@@ -13,6 +13,7 @@ from models import Tag, get_session
 from paper.settings import (BLOG_TITLE,
                             STATIC_FILE_VERSION,
                             GITHUB_LINK,
+                            DOUBAN_BOOK_LINK,
                             )
 
 
@@ -46,7 +47,9 @@ def session_context():
 
 def blog_context():
     data = {
+        'blog_title': BLOG_TITLE,
         'title': BLOG_TITLE,
+        'douban_book_link': DOUBAN_BOOK_LINK,
         'ver': STATIC_FILE_VERSION,
         'github_link': GITHUB_LINK
     }
