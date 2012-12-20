@@ -80,7 +80,7 @@ def archive():
 
 @app.get('/tag/<tag>')
 @no_cache
-@jinja_view('index.html')
+@jinja_view('archive.html')
 def filter_by_tag(tag):
     with session_context() as session:
         posts = session.query(Post).filter(Post.tags.any(Tag.name==tag)
