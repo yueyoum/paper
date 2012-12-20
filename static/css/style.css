@@ -186,36 +186,78 @@ body {
     text-decoration: underline;
 }
 
-#post-title {
+
+.index-post {
+	margin-bottom: 50px;
+}
+
+.index-post .post-title a {
+	border-bottom: 1px dashed #999;
+}
+.index-post .post-title a:hover {
+	color: #2485c1;
+	border-bottom-color: #2485c1;
+}
+
+
+#index-more {
+	text-align: center;
+}
+#index-more a {
+	border-bottom: 1px dashed #999;
+}
+#index-more a:hover {
+	color: #2485c1;
+	border-bottom-color: #2485c1;
+}
+
+.post-title {
     text-align: center;
 }
 
-#post-title h1 {
+.post-title h1 {
     margin-bottom: 0px;
 }
 
-#post-info {
+.post-info {
     text-align: center;
     font-size: 0.75em;
     color: #777;
 }
 
-#post-info span {
+.post-info span {
     display: inline-block;
     margin-right: 20px;
 }
 
-#post-info span.value {
+.post-info span.value {
     color: black;
 }
 
-#post-info span a {
+.post-info span a {
     margin: 0 10px;
 }
 
-#post-content {
+.post-content {
     margin-top: 20px;
 }
+
+
+.post-content h1 {
+	color: black;
+    border-bottom: 1px solid #666;
+	font-weight: bold;
+}
+.post-content h2 {
+	color: black;
+	margin-top: 2em;
+}
+
+.post-content strong, b{
+	color: black;
+}
+
+
 
 #comment {
     margin: 50px 0 0 0;
@@ -241,16 +283,3 @@ body {
     border-bottom: 1px dashed #ccc;
 }
 
-#post-content h1 {
-	color: black;
-    border-bottom: 1px solid #666;
-	font-weight: bold;
-}
-#post-content h2 {
-	color: black;
-	margin-top: 2em;
-}
-
-#post-content strong, b{
-	color: black;
-}

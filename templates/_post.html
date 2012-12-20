@@ -1,0 +1,29 @@
+
+    <div class="post-title">
+        <h1>
+            {% if index %}
+                <a href="/blog/{{ post.title }}">{{ post.title }}</a>
+            {% else %}
+                {{ post.title }}
+            {% endif %}
+        </h1>
+    </div>
+    
+    <div class="post-info">
+        <span>Posted At :</span>
+        <span class="value">{{ post.create_at|format_date }}</span>
+        <span>|</span>
+        <span>Views :</span>
+        <span class="value">{{ post.view_count }}</span>
+        <span>|</span>
+        <span>Tags :</span>
+        <span class="value">
+            {% for t in post.tags %}
+                <a href="/tag/{{ t.name }}">{{ t.name }}</a>
+            {% endfor %}
+        </span>
+    </div>
+    
+    <div class="post-content">
+        {{ post.content }}
+    </div>

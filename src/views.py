@@ -57,10 +57,24 @@ def group_posts(items):
 @jinja_view('index.html')
 def index():
     with session_context() as session:
+        posts = session.query(Post).order_by(Post.create_at.desc()).limit(2)
+        
+    return {'posts': posts, 'index': True}
+    
+    
+    
+    
+    
+@app.get('/archive')
+@no_cache
+@jinja_view('archive.html')
+def archive():
+    with session_context() as session:
         posts = session.query(Post).order_by(Post.create_at.desc())
         
     posts = group_posts(posts)
     return {'posts': posts}
+    
     
     
 
