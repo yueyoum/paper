@@ -26,7 +26,7 @@
 }
 
 
-
+/*
 @font-face {
     font-family: 'santanaregular';
     src: url('/static/font/santana-webfont.eot');
@@ -38,7 +38,7 @@
     font-style: normal;
 
 }
-
+*/
 
 
 
@@ -54,3 +54,19 @@
     font-style: normal;
 
 }
+
+
+
+
+@font-face {
+    font-family: 'exo';
+    src: url('/static/font/exo-regular-webfont.eot');
+    src: url('/static/font/exo-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/font/exo-regular-webfont.woff') format('woff'),
+         url('/static/font/exo-regular-webfont.ttf') format('truetype'),
+         url('/static/font/exo-regular-webfont.svg#exoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
