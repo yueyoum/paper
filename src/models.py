@@ -32,14 +32,11 @@ engine = create_engine(
 )
 
 
-def get_session():
-    Session = sessionmaker(bind=engine, expire_on_commit=False)
-    return Session()
+Session = sessionmaker(bind=engine, expire_on_commit=False)
+get_session = lambda: Session()
 
 
 Base = declarative_base()
-
-
 
 
 
