@@ -8,7 +8,7 @@ from functools import wraps
 from bottle import request
 from jinja2 import Environment, FileSystemLoader
 
-from models import Tag, get_session
+from models import Tag, session
 
 from paper.settings import (BLOG_TITLE,
                             STATIC_FILE_VERSION,
@@ -35,13 +35,13 @@ env.filters['format_date'] = format_date
 
 @contextmanager
 def session_context():
-    s = get_session()
+    #s = get_session()
     try:
-        yield s
+        yield session
     except Exception:
         raise
     finally:
-        s.close()
+        session.close()
 
 
 
