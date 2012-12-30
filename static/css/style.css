@@ -1,7 +1,7 @@
 ul {list-style: square;}
 a {text-decoration: none;}
 a:hover {text-decoration: underline;}
-pre {font: 0.95em "monacoregular";}
+pre {font: 0.9em "monacoregular";}
 
 
 body {
@@ -13,11 +13,10 @@ body {
     margin: 60px auto;
     padding: 60px 60px 20px 60px;
     border: 1px solid #bbb;
-    border-top-color: #999;
     background: white;
     position: relative;
-    -webkit-box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -29,9 +28,9 @@ body {
 	left:10px;
 	width:50%;
 	height:10px;
-	-webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.4);
-	-moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.4);
-	box-shadow:0 15px 10px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.3);
+	box-shadow:0 15px 10px rgba(0, 0, 0, 0.3);
 	-webkit-transform:rotate(3deg);
 	-moz-transform:rotate(3deg);
 	-ms-transform:rotate(3deg);
@@ -150,8 +149,8 @@ body {
 
 .highlight {
     margin: 10px 0px;
-    padding: 10px 20px;
-    font-size: 0.95em;
+    padding: 0 15px;
+    font-size: 0.85em;
     border: 1px solid #ccc;
 }
 
@@ -191,7 +190,7 @@ body {
 }
 
 .index-post .post-title a {
-	border-bottom: 1px dashed #999;
+	color: #2485c1;
 }
 .index-post .post-title a:hover {
 	color: #2485c1;
@@ -210,41 +209,16 @@ body {
 	border-bottom-color: #2485c1;
 }
 
-.post-title {
-    text-align: center;
-}
 
 .post-title h1 {
-    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
-.post-info {
-    text-align: center;
-    font-size: 0.75em;
-    color: #777;
-}
-
-.post-info span {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-.post-info span.value {
-    color: #333;
-}
-
-.post-info span a {
-    margin: 0 10px;
-}
-
-.post-content {
-    margin-top: 20px;
-}
 
 
 .post-content h1 {
 	color: #333;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #999;
 	font-weight: bold;
 }
 .post-content h2 {
@@ -282,3 +256,37 @@ body {
     border-bottom: 1px dashed #ccc;
 }
 
+
+.post-left {
+	width: 80px;
+	float: left;
+	border-right: 1px solid #ccc;
+	padding-right: 10px;
+	text-align: right;
+}
+
+.post-left .group {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+.post-left p {
+	margin-bottom: 2px;
+	color: #666;
+	font-size: 0.85em;
+}
+
+.post-left p.focus {
+	color: #333;
+	font-size: 1em;
+}
+
+.post-right {
+	float: right;
+	width: 750px;
+}
+
+.clear-both {
+	clear: both;
+}

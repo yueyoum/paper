@@ -1,29 +1,39 @@
 
-    <div class="post-title">
-        <h1>
-            {% if index %}
-                <a href="/blog/{{ post.title }}">{{ post.title }}</a>
-            {% else %}
-                {{ post.title }}
-            {% endif %}
-        </h1>
-    </div>
+    <div>
+        <div class="post-left">
+            <div class="group">
+                <p>{{ post.create_at|format_date("%F") }}</p>
+                <p>{{ post.create_at|format_date("%R") }}</p>
+                <p class="focus">{{ post.create_at|format_date("%A") }}</p>
+            </div>
+            
+            <div class="group">
+                <p>views</p>
+                <p class="focus">{{ post.view_count }}</p>
+            </div>
+            
+                <p>tags</p>
+                {% for t in post.tags %}
+                    <p><a href="/tag/{{ t.name }}">{{ t.name }}</a></p>
+                {% endfor %}
+        </div>
+        
+        <div class="post-right">
+            <div class="post-title">
+                <h1>
+                    {% if index %}
+                        <a href="/blog/{{ post.title }}">{{ post.title }}</a>
+                    {% else %}
+                        {{ post.title }}
+                    {% endif %}
+                </h1>
+            </div>
+            
+            
+            <div class="post-content">
+                {{ post.content }}
+            </div>
+        </div>
+        <div class="clear-both"></div>
     
-    <div class="post-info">
-        <span>Posted At :</span>
-        <span class="value">{{ post.create_at|format_date }}</span>
-        <span>|</span>
-        <span>Views :</span>
-        <span class="value">{{ post.view_count }}</span>
-        <span>|</span>
-        <span>Tags :</span>
-        <span class="value">
-            {% for t in post.tags %}
-                <a href="/tag/{{ t.name }}">{{ t.name }}</a>
-            {% endfor %}
-        </span>
-    </div>
-    
-    <div class="post-content">
-        {{ post.content }}
     </div>
