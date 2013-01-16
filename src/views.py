@@ -132,7 +132,10 @@ def edit_post(session, post_obj, content, tags):
     added_tags = new_tags - old_tags
     
     def _get_tag_obj(name):
-        return session.query(Tag).filter(Tag.name == name).one()
+        obj = session.query(Tag).filter(Tag.name == name)
+        if obj.count() == 0:
+            return None
+        return obj.one()
     
     for t in removed_tags:
         t_obj = _get_tag_obj(t)
@@ -142,7 +145,14 @@ def edit_post(session, post_obj, content, tags):
             session.delete(t_obj)
         
     for t in added_tags:
-        post_obj.tags.append( _get_tag_obj(t) )
+        t_obj = _get_tag_obj(t)
+        if t_obj is None:
+            # new tag
+            t_obj = Tag(t)
+        else:
+            # increase exists tag's posts_count
+            t_obj.posts_count += 1
+        post_obj.tags.append( t_obj )
     
     post_obj.content = content
     
