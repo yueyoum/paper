@@ -135,7 +135,12 @@ def edit_post(session, post_obj, content, tags):
         return session.query(Tag).filter(Tag.name == name).one()
     
     for t in removed_tags:
-        post_obj.tags.remove( _get_tag_obj(t) )
+        t_obj = _get_tag_obj(t)
+        post_obj.tags.remove( t_obj )
+        # if this tag's count == 1, then delete this tag
+        if t_obj.posts_count < 2:
+            session.delete(t_obj)
+        
     for t in added_tags:
         post_obj.tags.append( _get_tag_obj(t) )
     
