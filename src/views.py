@@ -120,18 +120,21 @@ def about():
 
 
 def edit_post(session, post_obj, content, tags):
-    #if not isinstance(tags, (list, tuple)):
-    #    tags = [tags]
-    #    
-    #new_tags = tags
-    #
-    #old_tags = [t.name for t in post_obj.tags]
-    #new_tags, old_tags = set(new_tags), set(old_tags)
-    #
-    #removed_tags = old_tags - new_tags
-    #added_tags = new_tags - old_tags
+    if not isinstance(tags, (list, tuple)):
+        tags = [tags]
+        
+    new_tags = tags
     
-    # TODO, tag changes
+    old_tags = [t.name for t in post_obj.tags]
+    new_tags, old_tags = set(new_tags), set(old_tags)
+    
+    removed_tags = old_tags - new_tags
+    added_tags = new_tags - old_tags
+    
+    for t in removed_tags:
+        post_obj.tags.remove(t)
+    for t in added_tags:
+        post_obj.tags.append(t)
     
     post_obj.content = content
     
