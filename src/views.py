@@ -131,10 +131,13 @@ def edit_post(session, post_obj, content, tags):
     removed_tags = old_tags - new_tags
     added_tags = new_tags - old_tags
     
+    def _get_tag_obj(name):
+        return session.query(Tag).filter(Tag.name == name).one()
+    
     for t in removed_tags:
-        post_obj.tags.remove(t)
+        post_obj.tags.remove( _get_tag_obj(t) )
     for t in added_tags:
-        post_obj.tags.append(t)
+        post_obj.tags.append( _get_tag_obj(t) )
     
     post_obj.content = content
     
