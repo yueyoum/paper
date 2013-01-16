@@ -152,7 +152,7 @@ body {
     padding: 0 15px;
     font-size: 0.85em;
     border: 1px solid #ccc;
-    word-wrap: break-word;
+    overflow-x: auto;
 }
 
 
