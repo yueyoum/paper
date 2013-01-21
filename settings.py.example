@@ -13,9 +13,6 @@ MYSQL = {
 BLOG_TITLE = ""
 GITHUB_LINK = ""
 
-# Douban books link
-# if not have douban link, just leave it as ""
-DOUBAN_BOOK_LINK = ""
 
 
 # Static files, (css, js, image, etc.)
