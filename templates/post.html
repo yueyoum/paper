@@ -7,6 +7,23 @@
             {% include "_post.html" %}
         {% endif %}
     </div>
+
+
+    {% if related_posts %}
+    <div id="related-posts-area">
+        <div class="post-left">
+            相关文章
+        </div>
+
+        <div class="post-right">
+            {% for rp in related_posts %}
+            <div>{{ rp.title }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="clear-both"></div>
+    </div>
+    {% endif %}
     
     <div id="comment">
         
@@ -29,3 +46,4 @@
     </div>
 
 {% endblock %}
+
