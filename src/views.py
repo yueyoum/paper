@@ -105,9 +105,16 @@ def show_post(title):
             
         post = post.one()
         post.view_count += 1
+
+        # get related posts
+        tag_ids = [_t.id for _t in post.tags]
+        related_posts = session.query(Post).filter(
+            Post.tags.any(Tag.id.in_(tag_ids))
+        ).order_by(Post.view_count.desc())
+
         session.commit()
     
-    return {'post': post, 'title': post.title}
+    return {'post': post, 'title': post.title, 'related_posts': related_posts}
 
 
 
