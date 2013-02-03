@@ -107,9 +107,13 @@ def show_post(title):
         post.view_count += 1
 
         # get related posts
+        # dont forget to filter self
         tag_ids = [_t.id for _t in post.tags]
+
         related_posts = session.query(Post).filter(
             Post.tags.any(Tag.id.in_(tag_ids))
+        ).filter(
+            Post.id != post.id
         ).order_by(Post.view_count.desc())
 
         session.commit()
