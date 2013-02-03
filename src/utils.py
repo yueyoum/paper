@@ -16,7 +16,7 @@ from paper.settings import (BLOG_TITLE,
                             )
 
 
-__all__ = ['jinja_view', 'key_verified',]
+__all__ = ['jinja_view', 'key_verified', 'session_context']
 
 CURRENT_PATH = os.path.dirname(os.path.realpath(__file__))
 PROJECT_PATH = os.path.dirname(CURRENT_PATH)
@@ -34,7 +34,6 @@ env.filters['format_date'] = format_date
 
 @contextmanager
 def session_context():
-    #s = get_session()
     try:
         yield session
     except Exception:
