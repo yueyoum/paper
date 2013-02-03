@@ -232,6 +232,18 @@ body {
 }
 
 
+#related-posts-area {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #2484C1;
+}
+
+#related-posts-area .post-right div {
+    margin-bottom: 6px;
+}
+
+
+
 
 #comment {
     margin: 50px 0 0 0;

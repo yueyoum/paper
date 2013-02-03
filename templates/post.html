@@ -17,7 +17,7 @@
 
         <div class="post-right">
             {% for rp in related_posts %}
-            <div>{{ rp.title }}</div>
+            <div><a href="/blog/{{ rp.title }}">{{ rp.title }}</a></div>
             {% endfor %}
         </div>
 
