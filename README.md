@@ -8,6 +8,16 @@ This is a simple blog based on bottle.
 * my blog: [Yueyoum](http://codeshift.org)
 
 
+## Note
+
+there have a new branch `newlooking`.
+
+just new css files change the apperance of blog.
+
+[my blog](http://codeshift.org) not running under the `newlooking` branch
+
+
+
 ## Quick Start
 
 details see **Deploy**
