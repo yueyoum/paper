@@ -3,50 +3,14 @@ a {text-decoration: none;}
 a:hover {text-decoration: underline;}
 pre {font: 0.9em "monacoregular";}
 
-
 body {
-    background: #F4F3F3 url('/static/img/background.png') repeat;
+    font-size: 1.02em;
 }
 
 #main {
-    width: 860px;
+    width: 960px;
     margin: 60px auto;
-    padding: 60px 60px 20px 60px;
-    border: 1px solid #bbb;
-    background: white;
-    position: relative;
-    -webkit-box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
 }
-
-
-#main:before, #main:after {
-	content:"";
-	position:absolute;
-	z-index:-2;
-	top:-8px;
-	left:10px;
-	width:50%;
-	height:10px;
-	-webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.3);
-	-moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.3);
-	box-shadow:0 15px 10px rgba(0, 0, 0, 0.3);
-	-webkit-transform:rotate(3deg);
-	-moz-transform:rotate(3deg);
-	-ms-transform:rotate(3deg);
-	-o-transform:rotate(3deg);
-	transform:rotate(3deg);
-}
-#main:after {
-	right:10px;
-	left:auto;
-	-webkit-transform:rotate(-3deg);
-	-moz-transform:rotate(-3deg);
-	-ms-transform:rotate(-3deg);
-	-o-transform:rotate(-3deg);
-	transform:rotate(-3deg);
-}
-
 
 
 #header {
@@ -58,23 +22,23 @@ body {
 
 #header-top {
     margin: 0 50px;
-    border-bottom: 1px dashed #ddd;
+    border-bottom: 1px dashed #2ba6cb;
     padding-bottom: 10px;
     margin-bottom: 5px;
 }
 
 
 #blog-title {
-    font: 2.2em "CaviarDreams";
-    font-size: 2.2em;
+    font: 2.4em "CaviarDreams";
+    font-size: 2.4em;
     letter-spacing: 0.1em;
     word-spacing: 0.3em;
     color: #555;
 }
 
 #blog-sub {
-    font: 0.7em "CaviarDreams";
-    font-size: 0.7em;
+    font: 0.8em "CaviarDreams";
+    font-size: 0.8em;
     color: gray;
 }
 
@@ -149,16 +113,11 @@ body {
 
 .highlight {
     margin: 10px 0px;
-    padding: 0 15px;
-    font-size: 0.85em;
-    border: 1px solid #ccc;
+    font-size: 0.9em;
     overflow-x: auto;
 }
 
 
-#index h2 {
-    color: #333;
-}
 
 #index ul li {
     line-height: 30px;
@@ -187,7 +146,9 @@ body {
 
 
 .index-post {
-	margin-bottom: 50px;
+	margin-bottom: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px dashed #ddd;
 }
 
 .index-post .post-title a {
@@ -216,14 +177,15 @@ body {
 }
 
 
+.post-content {
+    line-height: 1.6em;
+}
 
 .post-content h1 {
-	color: #333;
-    border-bottom: 1px solid #999;
-	font-weight: bold;
+    font-weight: normal;
 }
+
 .post-content h2 {
-	color: #333;
 	margin-top: 2em;
 }
 
@@ -271,10 +233,10 @@ body {
 
 
 .post-left {
-	width: 80px;
+	width: 100px;
 	float: left;
-	border-right: 1px solid #ccc;
-	padding-right: 10px;
+	border-right: 3px solid rgb(106, 214, 230);
+	padding-right: 20px;
 	text-align: right;
 }
 
@@ -297,7 +259,7 @@ body {
 
 .post-right {
 	float: right;
-	width: 750px;
+	width: 820px;
 }
 
 .clear-both {

@@ -1,14 +1,7 @@
 @import url(font.css);
 
-body {
-    /*font: 0.9em "monacoregular", Times;*/
-    font: 0.9em "exo", Times;
-    word-spacing: 0.1em;
-    }
-
-
 h1 {
-    font-weight: normal;
+    font-weight: bold;
     }
 h2 {
     font-weight: normal;

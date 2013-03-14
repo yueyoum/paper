@@ -57,7 +57,7 @@ def group_posts(items):
 @jinja_view('index.html')
 def index():
     with session_context() as session:
-        posts = session.query(Post).order_by(Post.create_at.desc()).limit(2)
+        posts = session.query(Post).order_by(Post.create_at.desc()).limit(3)
         
     return {'posts': posts, 'index': True}
     
