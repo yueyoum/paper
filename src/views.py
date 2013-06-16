@@ -128,8 +128,6 @@ def about():
     return {'title': 'about'}
 
 
-
-
 def edit_post(session, post_obj, content, tags):
     if not isinstance(tags, (list, tuple)):
         tags = [tags]

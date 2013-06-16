@@ -29,7 +29,10 @@ STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
 TEMPLATES_PATH = os.path.join(PROJECT_PATH, 'templates')
 KEY_PATH = os.path.join(CURRENT_PATH, '_key')
 
-env = Environment(loader = FileSystemLoader(TEMPLATES_PATH))
+env = Environment(
+    extensions=['jinja2.ext.with_'],
+    loader=FileSystemLoader(TEMPLATES_PATH)
+)
 
 def format_date(value, f="%b %d, %Y"):
     return datetime.datetime.strftime(value, f)
@@ -101,7 +104,6 @@ def forbid(**kwargs):
         
 
 
-        
 
 def key_verified(key):
     with open(KEY_PATH, 'r') as f:
@@ -110,8 +112,6 @@ def key_verified(key):
     data = data.strip('\n')
     key = key.strip('\n')
     return key == data
-
-
 
 
 def make_rss():

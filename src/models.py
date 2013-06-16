@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import datetime
+import pytz
 
 
 from sqlalchemy import Table, Column, ForeignKey
@@ -13,7 +14,7 @@ from sqlalchemy.dialects.mysql import (
         )
 
 
-from paper.settings import DEBUG, MYSQL, TIME_DELTA
+from paper.settings import DEBUG, MYSQL, TIMEZONE
 
 MYSQL_HOST = MYSQL['HOST']
 MYSQL_PORT = MYSQL['PORT']
@@ -40,6 +41,7 @@ session = Session()
 Base = declarative_base()
 
 
+timezone = pytz.timezone(TIMEZONE)
 
 class ModelSettings(type):
     """as metaclass, adding table settings and methods"""
@@ -127,17 +129,18 @@ class Post(Base):
             title = title.encode('utf-8')
         return '<Blog (%s)>' % title
 
+    @property
+    def create_at_localtime(self):
+        return self.create_at.replace(tzinfo=pytz.UTC).astimezone(timezone)
+
+    @property
+    def update_at_localtime(self):
+        return self.update_at.replace(tzinfo=pytz.UTC).astimezone(timezone)
+
 
 
 def now():
-    now = datetime.datetime.now()
-    if TIME_DELTA > 0:
-        _now = now + datetime.timedelta(hours=TIME_DELTA)
-    elif TIME_DELTA < 0:
-        _now = now - datetime.timedelta(hours=abs(TIME_DELTA))
-    else:
-        _now = now
-    return _now
+    return datetime.datetime.utcnow()
 
 
 def set_post_create_time(mapper, connections, instance):

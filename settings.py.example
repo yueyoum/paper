@@ -22,9 +22,4 @@ DOMAIN = YOUR DOMAIN NAME
 # due to static file are cached by client browser
 STATIC_FILE_VERSION = 1
 
-
-# TIME_DELTA for timezone.
-# Example, If server's timezone is ahead your local 5 hours
-# set TIME_DELTA = -5
-
-TIME_DELTA = 0
+TIMEZONE = 'Asia/Shanghai'

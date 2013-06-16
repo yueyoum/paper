@@ -2,9 +2,11 @@
     <div>
         <div class="post-left">
             <div class="group">
-                <p>{{ post.create_at|format_date("%F") }}</p>
-                <p>{{ post.create_at|format_date("%R") }}</p>
-                <p class="focus">{{ post.create_at|format_date("%A") }}</p>
+                {% with localtime = post.create_at_localtime %}
+                    <p>{{ localtime|format_date("%F") }}</p>
+                    <p>{{ localtime|format_date("%R") }}</p>
+                    <p class="focus">{{ localtime|format_date("%A") }}</p>
+                {% endwith %}
             </div>
             
             <div class="group">

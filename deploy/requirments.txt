@@ -5,6 +5,7 @@ jinja2
 pygments
 Markdown
 PyRSS2Gen
+pytz
 
 gevent
 gunicorn
