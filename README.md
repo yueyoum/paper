@@ -1,12 +1,15 @@
 # Paper
 
-This is a simple blog based on bottle.
+This is a simple blog system based on Bottle, Jinja2, SQLalchemy.
+
+White blog with Markdown.
 
 
 ## Demo
 
 *   my blog: [Yueyoum](http://codeshift.org)
-    RSS -> ![http://codeshift.org/atom.rss](http://codeshift.org/atom.rss)
+
+    RSS -> http://codeshift.org/atom.rss
 
 
 ## Quick Start
