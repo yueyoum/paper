@@ -121,7 +121,7 @@ def make_rss():
         return PyRSS2Gen.RSSItem(
             title = p.title,
             link = '%sblog/%s' % (DOMAIN, p.title),
-            description = p.content[:200],
+            description = p.content,
             pubDate = p.create_at
         )
     items = [_make_item(p) for p in posts]
