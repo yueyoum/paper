@@ -13,6 +13,8 @@ MYSQL = {
 BLOG_TITLE = ""
 GITHUB_LINK = ""
 
+DOMAIN = YOUR DOMAIN NAME
+
 
 
 # Static files, (css, js, image, etc.)

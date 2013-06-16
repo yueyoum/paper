@@ -17,6 +17,9 @@ from paper.settings import (BLOG_TITLE,
                             DOMAIN,
                             )
 
+if not DOMAIN.endswith('/'):
+    DOMAIN = "%s/" % DOMAIN
+
 
 __all__ = ['jinja_view', 'key_verified', 'session_context']
 
