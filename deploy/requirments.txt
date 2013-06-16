@@ -4,6 +4,7 @@ bottle
 jinja2
 pygments
 Markdown
+PyRSS2Gen
 
 gevent
 gunicorn

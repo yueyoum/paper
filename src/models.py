@@ -129,9 +129,7 @@ class Post(Base):
 
 
 
-
-
-def set_post_create_time(mapper, connections, instance):
+def now():
     now = datetime.datetime.now()
     if TIME_DELTA > 0:
         _now = now + datetime.timedelta(hours=TIME_DELTA)
@@ -139,8 +137,11 @@ def set_post_create_time(mapper, connections, instance):
         _now = now - datetime.timedelta(hours=abs(TIME_DELTA))
     else:
         _now = now
-    
-    instance.create_at = _now
+    return _now
+
+
+def set_post_create_time(mapper, connections, instance):
+    instance.create_at = now()
     instance.update_at = instance.create_at
 
 

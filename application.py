@@ -21,7 +21,7 @@ FUNCS = {}
 def register(name):
     if name in FUNCS:
         raise Exception("register failure, name %s already registered" % name)
-    
+
     def deco(func):
         FUNCS[name] = func
         @wraps(func)
@@ -38,7 +38,7 @@ def _run():
         server.serve_forever()
     except KeyboardInterrupt:
         server.stop()
-        
+
 @register('syncdb')
 def _syncdb():
     from src.models import sync
@@ -53,5 +53,5 @@ if __name__ == '__main__':
         )
         print usage.format(sys.argv[0], *commands)
         sys.exit(1)
-        
+
     FUNCS[sys.argv[1]]()

@@ -7,12 +7,14 @@ from functools import wraps
 
 from bottle import request
 from jinja2 import Environment, FileSystemLoader
+import PyRSS2Gen
 
-from models import Tag, session
+from models import Tag, Post, session, now
 
 from paper.settings import (BLOG_TITLE,
                             STATIC_FILE_VERSION,
                             GITHUB_LINK,
+                            DOMAIN,
                             )
 
 
@@ -20,6 +22,7 @@ __all__ = ['jinja_view', 'key_verified', 'session_context']
 
 CURRENT_PATH = os.path.dirname(os.path.realpath(__file__))
 PROJECT_PATH = os.path.dirname(CURRENT_PATH)
+STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
 TEMPLATES_PATH = os.path.join(PROJECT_PATH, 'templates')
 KEY_PATH = os.path.join(CURRENT_PATH, '_key')
 
@@ -104,3 +107,28 @@ def key_verified(key):
     data = data.strip('\n')
     key = key.strip('\n')
     return key == data
+
+
+
+
+def make_rss():
+    with session_context() as session:
+        posts = session.query(Post).order_by(Post.create_at.desc())
+    def _make_item(p):
+        return PyRSS2Gen.RSSItem(
+            title = p.title,
+            link = '%sblog/%s' % (DOMAIN, p.title),
+            description = p.content[:200],
+            pubDate = p.create_at
+        )
+    items = [_make_item(p) for p in posts]
+
+    rss = PyRSS2Gen.RSS2(
+        title = BLOG_TITLE,
+        link = DOMAIN + 'atom.rss',
+        lastBuildDate = now(),
+        description = "The blog feeds of %s" % BLOG_TITLE,
+        items = items
+    )
+    with open(os.path.join(STATIC_PATH, 'atom.rss'), 'w') as f:
+        rss.write_xml(f)

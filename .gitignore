@@ -4,6 +4,7 @@
 *.bak
 *.o
 
+atom.rss
 _key
 me.html
 settings.py
