@@ -10,16 +10,9 @@ MYSQL = {
     'PASSWORD': '',
 }
 
-BLOG_TITLE = ""
-GITHUB_LINK = ""
+BLOG_TITLE = ""              # display as header of your site
+GITHUB_LINK = ""             # your github link
 
-DOMAIN = YOUR DOMAIN NAME
+DOMAIN = 'YOUR DOMAIN NAME'  # this used for rss links
 
-
-
-# Static files, (css, js, image, etc.)
-# If your changed static file, then change the value
-# due to static file are cached by client browser
-STATIC_FILE_VERSION = 1
-
-TIMEZONE = 'Asia/Shanghai'
+TIMEZONE = 'Asia/Shanghai'   # change this as your timezone

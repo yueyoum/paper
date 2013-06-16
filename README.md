@@ -5,9 +5,8 @@ This is a simple blog based on bottle.
 
 ## Demo
 
-* my blog: [Yueyoum](http://codeshift.org)
-
-
+*   my blog: [Yueyoum](http://codeshift.org)
+    RSS -> ![http://codeshift.org/atom.rss](http://codeshift.org/atom.rss)
 
 
 ## Quick Start
