@@ -15,4 +15,7 @@ GITHUB_LINK = ""             # your github link
 
 DOMAIN = 'YOUR DOMAIN NAME'  # this used for rss links
 
+STATIC_FILE_VERSION = 1      # when you change static files, 
+                             # change this value to force client get the new files
+
 TIMEZONE = 'Asia/Shanghai'   # change this as your timezone
