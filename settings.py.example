@@ -10,7 +10,10 @@ MYSQL = {
     'PASSWORD': '',
 }
 
-BLOG_TITLE = ""              # display as header of your site
+# NOTE: TITLE should be unicode for NONE english words
+BLOG_TITLE = u""             # display as header of your site
+BLOG_SUB_TITLE = u""         # display as a brief introduction with a small font
+                             # below BLOG_TITLE
 GITHUB_LINK = ""             # your github link
 
 DOMAIN = 'YOUR DOMAIN NAME'  # this used for rss links

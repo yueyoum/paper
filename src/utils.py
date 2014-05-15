@@ -12,6 +12,7 @@ import PyRSS2Gen
 from models import Tag, Post, session, now
 
 from paper.settings import (BLOG_TITLE,
+                            BLOG_SUB_TITLE,
                             STATIC_FILE_VERSION,
                             GITHUB_LINK,
                             DOMAIN,
@@ -55,6 +56,7 @@ def session_context():
 def blog_context():
     data = {
         'blog_title': BLOG_TITLE,
+        'blog_sub_title': BLOG_SUB_TITLE,
         'title': BLOG_TITLE,
         'ver': STATIC_FILE_VERSION,
         'github_link': GITHUB_LINK
@@ -135,3 +137,4 @@ def make_rss():
     )
     with open(os.path.join(STATIC_PATH, 'atom.rss'), 'w') as f:
         rss.write_xml(f)
+
