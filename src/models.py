@@ -18,7 +18,7 @@ from paper.settings import DEBUG, MYSQL, TIMEZONE
 
 MYSQL_HOST = MYSQL['HOST']
 MYSQL_PORT = MYSQL['PORT']
-MYSQL_TABLE = MYSQL['TABLE']
+MYSQL_DATABASE = MYSQL['NAME']
 MYSQL_USER = MYSQL['USER']
 MYSQL_PASSWORD = MYSQL['PASSWORD']
 
@@ -27,7 +27,7 @@ __all__ = ['session', 'Tag', 'Post']
 
 engine = create_engine(
     'mysql://%s:%s@%s:%d/%s?charset=utf8' % (
-        MYSQL_USER, MYSQL_PASSWORD, MYSQL_HOST, MYSQL_PORT, MYSQL_TABLE
+        MYSQL_USER, MYSQL_PASSWORD, MYSQL_HOST, MYSQL_PORT, MYSQL_DATABASE
     ),
     echo = DEBUG
 )
@@ -152,4 +152,13 @@ event.listen(Post, 'before_insert', set_post_create_time)
 
 
 def sync():
+    import subprocess
+    cmd_create_database = 'echo "create database %s default charset=utf8" | \
+            mysql -h%s -P%s -u%s -p%s' % (
+                    MYSQL_DATABASE, MYSQL_HOST, str(MYSQL_PORT),
+                    MYSQL_USER, MYSQL_PASSWORD
+                    )
+    p = subprocess.Popen(cmd_create_database, shell=True)
+    _retcode = p.wait()
     Base.metadata.create_all(engine)
+

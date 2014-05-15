@@ -5,7 +5,7 @@ DEBUG = False
 MYSQL = {
     'HOST': '127.0.0.1',
     'PORT': 3306,
-    'TABLE': '',
+    'NAME': '',             # mysql database name
     'USER': '',
     'PASSWORD': '',
 }
