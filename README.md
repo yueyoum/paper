@@ -7,9 +7,7 @@ White blog with Markdown.
 
 ## Demo
 
-*   my blog: [Yueyoum](http://codeshift.org)
-
-    RSS -> http://codeshift.org/atom.rss
+*   Not avaliable
 
 
 ## Quick Start
